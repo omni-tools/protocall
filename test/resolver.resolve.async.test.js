@@ -27,7 +27,7 @@ test('resolve', async t => {
 test('resolve with filename', async t => {
   const resolver = protocall.create();
   resolver.use('foo', foo);
-  resolver.use('bar', function(data, file, cb) {
+  resolver.use('bar', function (data, file, cb) {
     cb(null, file + data);
   });
 

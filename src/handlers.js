@@ -61,7 +61,7 @@ function base64() {
 function env() {
   const filters = {
     d(value) {
-      return parseInt(value, 10);
+      return Number.parseInt(value, 10);
     },
     b(value) {
       return !['', 'false', '0', undefined].includes(value);
@@ -74,7 +74,7 @@ function env() {
   return function envHandler(value) {
     let result;
 
-    Object.keys(filters).some(function(key) {
+    Object.keys(filters).some(function (key) {
       const fn = filters[key];
       const pattern = `|${key}`;
       const loc = value.indexOf(pattern);

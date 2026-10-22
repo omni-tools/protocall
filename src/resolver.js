@@ -34,7 +34,7 @@ class Resolver {
 
   get supportedProtocols() {
     const resolverProtocols = _.keys(this._handlers);
-    return _.uniq(resolverProtocols.concat(this.parent ? this.parent.supportedProtocols : []));
+    return _.uniq([...resolverProtocols, ...(this.parent ? this.parent.supportedProtocols : [])]);
   }
 
   /**
@@ -45,7 +45,7 @@ class Resolver {
   getHandlers(protocol) {
     const handlers = this._handlers[protocol] || [];
     const parentHandlers = this.parent ? this.parent.getHandlers(protocol) : [];
-    return _.concat(parentHandlers, handlers);
+    return [...parentHandlers, ...handlers];
   }
 
   /**
@@ -68,6 +68,8 @@ class Resolver {
         _.fromPairs
       )(protocol);
     }
+    // Lodash FP uses path-first arguments and supports nested paths.
+    // eslint-disable-next-line unicorn/prefer-object-has-own
     if (!_.has(protocol, this._handlers)) this._handlers[protocol] = [];
 
     this._handlers[protocol].push(handler);

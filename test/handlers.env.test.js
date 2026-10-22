@@ -21,12 +21,12 @@ test('env as number', t => {
 
 test('env as number but not empty', t => {
   process.env.TEST_SAMPLE_NAN = '';
-  t.assert(isNaN(envHandler('TEST_SAMPLE_NAN|d')));
+  t.assert(Number.isNaN(envHandler('TEST_SAMPLE_NAN|d')));
 });
 
 test('env as number but string', t => {
   process.env.TEST_SAMPLE_NAN_STR = 'not a number';
-  t.assert(isNaN(envHandler('TEST_SAMPLE_NAN_STR|d')));
+  t.assert(Number.isNaN(envHandler('TEST_SAMPLE_NAN_STR|d')));
 });
 
 test('env as booolean (some string)', t => {
