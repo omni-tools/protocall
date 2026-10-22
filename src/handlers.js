@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash/fp');
-const globby = require('globby');
-const callsites = require('callsites');
+const {globby} = require('globby');
+const {default: callsites} = require('callsites');
 
 const getCallerFolder = () => {
   const file = callsites()[2].getFileName(); // note: 2 and not 0 since wrapped in function
