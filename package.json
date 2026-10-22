@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@-k/eslint-plugin": "^0.2.0",
-    "ava": "^2.4.0",
+    "ava": "^3.15.0",
     "codecov": "^3.6.1",
     "eslint": "^6.6.0",
     "np": "^5.1.2",

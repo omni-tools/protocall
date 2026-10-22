@@ -1,7 +1,7 @@
 # protocall
 
 [![Npm version](https://img.shields.io/npm/v/protocall.svg)](https://www.npmjs.com/package/protocall)
-[![Build Status](https://travis-ci.com/omni-tools/protocall.svg?branch=master)](https://travis-ci.com/omni-tools/protocall)
+[![CI](https://github.com/omni-tools/protocall/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/omni-tools/protocall/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/omni-tools/protocall/branch/master/graph/badge.svg)](https://codecov.io/gh/omni-tools/protocall)
 
 > Use of _“Protocall”s_ in your json configuration

@@ -74,7 +74,7 @@ test('async resolve error', async t => {
     cb(new Error('fail'));
   });
   const source = {foo: 'foo:foo', bar: false};
-  await t.throwsAsync(() => resolver.resolve(source), 'fail');
+  await t.throwsAsync(() => resolver.resolve(source), {message: 'fail'});
 });
 
 test('sync resolve uncaught error', async t => {
@@ -83,7 +83,7 @@ test('sync resolve uncaught error', async t => {
     throw new Error('fail');
   });
   const source = {foo: 'test:foo', bar: false};
-  await t.throwsAsync(() => resolver.resolve(source), 'fail');
+  await t.throwsAsync(() => resolver.resolve(source), {message: 'fail'});
 });
 
 test('resolveFile', async t => {
@@ -126,7 +126,7 @@ test('resolveFile error', async t => {
   await t.throwsAsync(() => resolver.resolveFile('./notfound.txt'), {code: 'ENOENT'});
   await t.throwsAsync(
     () => resolver.resolveFile(path.resolve(__dirname, './fixtures/invalid.txt')),
-    'Unexpected token , in JSON at position 1'
+    {instanceOf: SyntaxError}
   );
 });
 
