@@ -1,11 +1,6 @@
 {
   "extends": ["plugin:@-k/base"],
-  "overrides": [
-    {
-      "files": ["test/*.test.js"],
-      "settings": {
-        "import/core-modules": ["ava"]
-      }
-    }
-  ]
+  "rules": {
+    "import/extensions": "off"
+  }
 }
