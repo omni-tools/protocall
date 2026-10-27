@@ -22,7 +22,9 @@ jobs:
       - run: npm ci
       - run: npm test
       - name: Upload coverage
-        uses: codecov/codecov-action@v5
+        if: ${{ !cancelled() && hashFiles('coverage/lcov.info') != '' }}
+        uses: codecov/codecov-action@v7
         with:
           files: ./coverage/lcov.info
+          disable_search: true
           token: ${{ secrets.CODECOV_TOKEN }}
